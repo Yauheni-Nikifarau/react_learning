@@ -1,25 +1,30 @@
-import logo from './logo.svg';
+import React, {useState} from "react";
+import {BrowserRouter, Route, Router} from "react-router-dom";
 import './App.css';
+import Nav from "./Components/Nav/Nav";
+import Score from "./Components/Score";
+import Library from "./Components/Library";
+import Training from "./Components/Training";
+import Learn from "./Components/Learn";
+import Game from "./Components/Games/Game";
 
-function App() {
+const App = () => {
+  const [score, setScore] = useState(0);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <BrowserRouter>
+        <div className="app-wrapper">
+            <Nav />
+            <Score score={score}/>
+            <Route path='/library' component={Library} />
+            <Route path='/training' component={Training} />
+            <Route path='/learn' component={Learn} />
+            <Route path='/training/check-mode'>
+                <Game setScore={setScore}
+                        score={score}/>
+            </Route>
+        </div>
+    </BrowserRouter>
+  )
 }
 
 export default App;
