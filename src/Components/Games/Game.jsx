@@ -21,12 +21,19 @@ export default (props) => {
             {location.pathname === '/training/check-mode' ?
                 <CheckMode setScore={props.setScore}
                            score={props.score}
+                           checkLevel={props.checkLevel}
                            correctAnswers={correctAnswers}
                            wrongAnswers={wrongAnswers}
                             setCorrectAnswers={setCorrectAnswers}
                             setWrongAnswers={setWrongAnswers} /> :
             location.pathname === '/training/write-mode' ?
-                <WriteMode setScore={props.setScore} score={props.score} /> : null}
+                <WriteMode setScore={props.setScore}
+                           score={props.score}
+                           checkLevel={props.checkLevel}
+                           correctAnswers={correctAnswers}
+                           wrongAnswers={wrongAnswers}
+                           setCorrectAnswers={setCorrectAnswers}
+                           setWrongAnswers={setWrongAnswers} /> : null}
         </div>
     )
 }

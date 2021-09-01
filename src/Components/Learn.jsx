@@ -1,12 +1,14 @@
 import React, {useState} from "react";
 
-const Learn = () => {
+const Learn = (props) => {
     const library = JSON.parse(localStorage.getItem('library')) || [{id: 0, word: '', translate: ''}];
     const [index, setIndex] = useState(0);
     const word = library[index];
     const nextWord = () => {
         if (index < library.length - 1) {
-            setIndex(index+1)
+            setIndex(index+1);
+            props.setScore(props.score + 0.5);
+            props.checkLevel();
         } else {
             setIndex(0)
         }

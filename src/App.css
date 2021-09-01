@@ -411,3 +411,26 @@ body {
   row-gap: 10px;
   text-align: center;
 }
+
+
+.customInput {
+  position: relative;
+  border: none;
+  border-bottom: 1px solid #084934;
+}
+
+.customInput:focus {
+  outline: none;
+}
+
+.btn-enter {
+  background-color: #1f6d54;
+  color: #FFFFFF;
+  font-size: 24px;
+  text-transform: uppercase;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  padding: 20px;
+}
+
